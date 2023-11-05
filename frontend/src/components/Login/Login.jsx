@@ -1,16 +1,34 @@
+import {useState} from "react";
+
+
 const Login = () => {
+
+    const [usuario, setUsuario] = useState('');
+    const [password, setPassword] = useState('');
+    
+
+    //Funcion que indica que hace el boton
+    const handleLogin = (e) => {
+        e.preventDefault();
+        console.log({
+            usuario: usuario,
+            password: password,
+        });
+    }
+
+
     return(
             <div>
                 <h1>Login</h1>
                 <form>
 
-                    <label  className="custom-label"  >Usuario</label> 
-                    <input  className="custom-input"  type="text" placeholder="Usuario:" />
+                    <label >Usuario</label> 
+                    <input onChange={ (event) => {setUsuario(event.target.value)}}  type="text" placeholder="Usuario:"  />
 
-                    <label  className="custom-label"  >Contraseña</label>
-                    <input  className="custom-input"  type="password" placeholder="Contraseña:" />
+                    <label >Contraseña</label>
+                    <input onChange={ (event) => {setPassword(event.target.value)}} type="password" placeholder="Password:" />
 
-                    <button className="custom-button" >Login</button>
+                    <button onClick= { handleLogin } >Login</button>
                 </form>
             </div>
             );
