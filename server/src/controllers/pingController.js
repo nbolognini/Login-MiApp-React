@@ -7,6 +7,7 @@ module.exports.ping = (req, res) => {
     try {
         connection.query(consult, (err, results)=>{
             console.log(results)
+            res.json(results)
         });
 
     } catch (e) {
