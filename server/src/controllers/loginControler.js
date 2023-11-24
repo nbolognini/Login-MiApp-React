@@ -7,6 +7,7 @@ module.exports.login = (req, res) => {
     try {
         connection.query(consult, [username, password], (err, result) => {
             if (err) {
+                res.send({message: 'Error de user/pass'});
                 res.send(err);
             }
 
@@ -19,13 +20,10 @@ module.exports.login = (req, res) => {
                 res.send({message: 'Usuario o contraseña incorrectos'});
             }
 
+            });
 
-        });
-    } catch (e) {  
+        } catch (e) {  
 
     }
-
-
-
 }
 
